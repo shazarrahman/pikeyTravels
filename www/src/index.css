@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #f97316;
+  --color-secondary: #0f172a;
+  --color-accent: #f59e0b;
+  --color-foreground: #ffffff;
+  --color-tertiary: #0f172a;
+  --gradient-travel: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-primary) 100%);
+  --gradient-sunset: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-accent) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-secondary) 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+}
+
+@layer utilities {
+  .bg-gradient-travel {
+    background: var(--gradient-travel);
+  }
+  .bg-gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Theme-driven utilities (map Tailwind-like classes to CSS variables)
+     These let components keep using classes like `bg-primary-500` while
+     still respecting backend-configurable colors injected into
+     `--color-primary`, `--color-secondary`, and `--color-accent`. */
+  .text-primary-500 { color: var(--color-primary); }
+  .bg-primary-500 { background-color: var(--color-primary); }
+  .bg-primary-600 { background-color: var(--color-primary); }
+  .bg-primary-100 { background-color: color-mix(in srgb, var(--color-primary) 8%, white); }
+  .border-primary-500 { border-color: var(--color-primary); }
+  .focus\:ring-primary-500:focus { box-shadow: 0 0 0 4px rgba(0,0,0,0.06); }
+
+  .text-accent-500 { color: var(--color-accent); }
+  .bg-accent-500 { background-color: var(--color-accent); }
+  .from-primary-500 { --tw-gradient-from: var(--color-primary); }
+  .to-primary-600 { --tw-gradient-to: var(--color-accent); }
+  .bg-brand-primary { background-color: var(--color-primary); }
+}
